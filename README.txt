@@ -25,3 +25,12 @@
     methods:
       类型:{[key:string]:Function}
       作用:定义属于Vue的一些方法,可以在其他地方调用,也可以在指令中使用
+
+3.v-bind绑定style
+    可以利用v-bind:style来绑定一些CSS内联样式
+    在写CSS属性名的时候，比如fontSize
+      可以使用驼峰式(camelCase)fontSize
+      或短横线分隔(kebab-case)'font-size'
+    绑定class有两种方式:
+      对象语法
+      数组语法

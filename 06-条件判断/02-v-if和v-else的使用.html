@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--<div id="app">
+  <h2 v-if="isShow">
+    <div>abc</div>
+    <div>abc</div>
+    <div>abc</div>
+    <div>abc</div>
+    {{message}}
+  </h2>
+  <h1 v-else>isShow为false时,显示我</h1>
+</div>-->
+
+<div id="app">
+    <h2 v-for="score in scores">
+        {{result(score)}}
+        <!--{{shows(score)}}-->
+        <!-- <h2 v-if="scores>=90">优秀</h2>
+        <h2 v-else-if="scores>=80">良好</h2>
+        <h2 v-else-if="scores>=60">及格</h2>
+        <h2 v-else>不及格</h2>-->
+    </h2>
+
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+    const app = new Vue({
+        el: '#app',
+        data: {
+            message: '你好啊',
+            isShow: true,
+            scores: [100, 99, 86, 60, 65, 21]
+        },
+        computed: {
+            result() {
+                //采用闭包，计算属性返回一个匿名函数，然后执行这个匿名函数并传入参数，将判断结果返回
+                //传参的计算属性结果没有缓存，而是重新计算，不建议使用，与函数实现类似
+                return function (score) {
+                    let showMessage = '';
+                    if (score >= 90) {
+                        showMessage = '优秀'
+                    } else if (score > 80) {
+                        showMessage = "良好"
+                    } else if (score > 60) {
+                        showMessage = "及格"
+                    } else {
+                        showMessage = "不及格"
+                    }
+                    return showMessage;
+                }
+            }
+        },
+        methods: {
+            //通过函数实现
+            show(score) {
+                if (score > 90) {
+                    return "优秀"
+                } else if (score > 80) {
+                    return "良好"
+                } else if (score > 60) {
+                    return "及格"
+                } else {
+                    return "不及格"
+                }
+            }
+        }
+    })
+</script>
+
+</body>
+</html>

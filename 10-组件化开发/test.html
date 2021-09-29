@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+  <title>vue+chart</title>
+  <script src="js/echarts.min.js"></script><!-- 引入echarts.js-->
+  <script src="../js/echarts_elastic.js"></script><!-- 引入echarts_elastic插件-->
+  <style>
+    .chart{
+      margin:0 auto;
+    }
+    #but{
+      width:310px;
+      margin:0 auto;
+    }
+    .block{
+      width:400px;
+      margin:0 auto;
+    }
+  </style>
+
+</head>
+
+<body>
+<div id="panel">
+  <div id="main" style="width:400px;height:400px"></div>
+</div>
+<button onclick='add()'>放大</button>
+<button onclick='red()'>缩小</button>
+<script src="js/script.js"></script>
+</body>
+</html>
